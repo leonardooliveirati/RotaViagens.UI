@@ -1,1 +1,4 @@
-<p>listar-rotas works!</p>
+<h2>Listar Rotas</h2>
+<div *ngFor="let rota of rotas">
+  <p>{{ rota.origem }} - {{ rota.destino }}: ${{ rota.valor }}</p>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MelhorRotaComponent } from './melhor-rota.component';
+import { RotaFormComponent } from './melhor-rota.component';
 
 describe('MelhorRotaComponent', () => {
-  let component: MelhorRotaComponent;
-  let fixture: ComponentFixture<MelhorRotaComponent>;
+  let component: RotaFormComponent;
+  let fixture: ComponentFixture<RotaFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MelhorRotaComponent]
+      imports: [RotaFormComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(MelhorRotaComponent);
+
+    fixture = TestBed.createComponent(RotaFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
