@@ -2,6 +2,7 @@
 import { RotaService } from '../rota.service';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Rota } from '../models/rota';
 
 @Component({
   selector: 'app-rota-form',
@@ -14,18 +15,25 @@ export class RotaFormComponent {
   destino: string = "";
   melhorRota: string = "";
 
-  constructor(private http: HttpClient) { }
+  rotas: Rota[] = [];
+
+  constructor(private rotaService: RotaService) { }
+
+  // buscarMelhorRota(): void {
+  //   const url = `http://localhost:7055/api/rotas/melhor-rota?origem=${this.origem}&destino=${this.destino}`;
+
+  //   this.http.get<string>(url).subscribe(
+  //     (rota) => {
+  //       this.melhorRota = rota;
+  //     },
+  //     (error) => {
+  //       console.error('Erro ao buscar a melhor rota:', error);
+  //     }
+  //   );
+  // }
 
   buscarMelhorRota(): void {
-    const url = `http://localhost:7055/api/rotas/melhor-rota?origem=${this.origem}&destino=${this.destino}`;
-
-    this.http.get<string>(url).subscribe(
-      (rota) => {
-        this.melhorRota = rota;
-      },
-      (error) => {
-        console.error('Erro ao buscar a melhor rota:', error);
-      }
-    );
+    this.rotaService.obterMelhorRota(this.origem, this.destino)
+      .subscribe(rotas => this.rotas = rotas);
   }
 }

@@ -1,16 +1,21 @@
-<!-- rota-form.component.html -->
+<div class="container">
+  <h2>Buscar Melhor Rota</h2>
+  <div class="form-group">
+    <label for="origem">Origem:</label>
+    <input type="text" class="form-control" id="origem" [(ngModel)]="origem">
+  </div>
+  <div class="form-group">
+    <label for="destino">Destino:</label>
+    <input type="text" class="form-control" id="destino" [(ngModel)]="destino">
+  </div>
+  <button class="btn btn-primary" (click)="buscarMelhorRota()">Buscar</button>
+</div>
 
-<form (ngSubmit)="buscarMelhorRota()">
-  <label for="origem">Origem:</label>
-  <input type="text" id="origem" name="origem" [(ngModel)]="origem">
-
-  <label for="destino">Destino:</label>
-  <input type="text" id="destino" name="destino" [(ngModel)]="destino">
-
-  <button type="submit">Buscar Melhor Rota</button>
-</form>
-
-<div *ngIf="melhorRota">
-  <p>Melhor Rota encontrada:</p>
-  <p>{{ melhorRota }}</p>
+<div class="container mt-3">
+  <h2>Melhor Rota</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let rota of rotas">
+      {{ rota.origem }} - {{ rota.destino }} (Valor: {{ rota.valor }})
+    </li>
+  </ul>
 </div>
