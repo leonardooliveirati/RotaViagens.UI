@@ -1,1 +1,16 @@
-<p>melhor-rota works!</p>
+<!-- rota-form.component.html -->
+
+<form (ngSubmit)="buscarMelhorRota()">
+  <label for="origem">Origem:</label>
+  <input type="text" id="origem" name="origem" [(ngModel)]="origem">
+
+  <label for="destino">Destino:</label>
+  <input type="text" id="destino" name="destino" [(ngModel)]="destino">
+
+  <button type="submit">Buscar Melhor Rota</button>
+</form>
+
+<div *ngIf="melhorRota">
+  <p>Melhor Rota encontrada:</p>
+  <p>{{ melhorRota }}</p>
+</div>
